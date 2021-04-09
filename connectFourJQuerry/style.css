@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+#connectFour {
+    background-color: gold;
+    border: 1px sold orange;
+    box-shadow: inset 0 0 10px orange;
+    padding: 0.5rem;
+    display: inline-block;
+}
+
+.col {
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    background-color: white;
+    border: 1px solid orange;
+    border-radius: 50%;
+    box-shadow: 0 0 5px orange;
+    margin: 0.5rem;
+}
+
+.nextmove {
+    background-color: rgb(300, 0, 0, 0.4);
+}
