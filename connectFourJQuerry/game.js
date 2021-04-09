@@ -3,6 +3,7 @@ class Game {
         this.rows = 6;
         this.cols = 7;
         this.selector = selector;
+        this.player = "red"
         this.createGrid();
         this.setUpEventListeners();
     }
@@ -24,6 +25,7 @@ class Game {
 
     setUpEventListeners(){
         const $board = $(this.selector);
+        const thisClass = this;
 
         function findLastEmptyCell(col){
             const cells = $(`.col[data-col=${col}]`)
@@ -41,12 +43,19 @@ class Game {
             const col = $(this).data('col');
             const row = $(this).data('row');
             const $lastEmptyCell = findLastEmptyCell(col);
-            $lastEmptyCell.addClass("nextmove");
+            $lastEmptyCell.addClass(`next-${thisClass.player}`);
             console.log(row, col)
         })
 
         $board.on("mouseleave", ".col", function(){
-            $(".col").removeClass("nextmove")
+            $(".col").removeClass(`next-${thisClass.player}`)
+        })
+
+        $board.on("click", ".col.empty", function(){
+            const col = $(this).data("col");
+            const $lastEmptyCell = findLastEmptyCell(col);
+            $lastEmptyCell.removeClass("empty").addClass(thisClass.player);
+            thisClass.player = thisClass.player === "red" ? "black" : "red";
         })
     }
 }
