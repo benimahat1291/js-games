@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.game {
+    position: absolute;
+    top: 10vh;
+    left: 50%;
+    transform: translate(-50%);
+    width: 650px;
+    height: 600px;
+    background-color: lavender;
+    border: 1px solid gray;
+    box-shadow: 5px 5px blac;
+    padding: 1.5rem;
+
+}
+
+.slot {
+    width: 90px;
+    height: 90px;
+    background: white;
+    border: 1px solid gray;
+    border-radius: 50%;
+}
+
+.reset {
+    position: absolute;
+    top: 80vh;
+    left: 50%;
+    transform: translate(-50%);;
+
+}
