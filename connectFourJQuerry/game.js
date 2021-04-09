@@ -41,10 +41,8 @@ class Game {
 
         $board.on("mouseenter", `.col.empty`, function(){
             const col = $(this).data('col');
-            const row = $(this).data('row');
             const $lastEmptyCell = findLastEmptyCell(col);
             $lastEmptyCell.addClass(`next-${thisClass.player}`);
-            console.log(row, col)
         })
 
         $board.on("mouseleave", ".col", function(){
@@ -54,8 +52,9 @@ class Game {
         $board.on("click", ".col.empty", function(){
             const col = $(this).data("col");
             const $lastEmptyCell = findLastEmptyCell(col);
-            $lastEmptyCell.removeClass("empty").addClass(thisClass.player);
-            thisClass.player = thisClass.player === "red" ? "black" : "red";
+            $lastEmptyCell.removeClass(`empty next-${thisClass.player}`).addClass(thisClass.player);
+            thisClass.player = (thisClass.player === "red") ? "black" : "red";
+            $(this).trigger("mouseenter");
         })
     }
 }
